@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function App() {
+import Index from './src/pages/Index'
+import Dobro from './src/pages/Dobro'
+
+const Stack = createNativeStackNavigator();
+
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Index">
+        <Stack.Screen name="Index" component={Index}/>
+        <Stack.Screen name="Dobro" component={Dobro}/>
+      </Stack.Navigator>
+      </NavigationContainer>
+  )
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
